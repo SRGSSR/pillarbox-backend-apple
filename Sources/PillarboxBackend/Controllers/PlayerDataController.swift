@@ -13,8 +13,10 @@ enum PlayerDataController {
     static func content(with identifier: String) -> PlayerData<CustomData>? {
         _contents.first { $0.identifier == identifier }
     }
+}
 
-    private static func appleBasic16_9() -> PlayerData<CustomData> {
+private extension PlayerDataController {
+    static func appleBasic16_9() -> PlayerData<CustomData> {
         PlayerData(
             identifier: "pillarbox:apple-basic-16-9",
             title: "Apple Basic 16:9",
