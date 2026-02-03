@@ -2,11 +2,13 @@ import Vapor
 
 func routes(_ app: Application) throws {
     app.get { req async -> String in
-        """
+        let routes = app.routes.all.dropFirst().map(\.description).joined(separator: "\n\t")
+        return """
         🎬 Pillarbox Backend
-            • Available endpoints:
-                - /identifiers
-                - /media/:identifier
+        
+            Available endpoints:
+
+            \t\(routes)
         """
     }
 
