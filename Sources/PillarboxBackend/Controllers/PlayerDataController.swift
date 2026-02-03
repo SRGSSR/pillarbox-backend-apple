@@ -1,7 +1,20 @@
 import Foundation
+import Vapor
 
-struct PlayerDataController {
-    static func appleBasic16_9() -> PlayerData<Empty> {
+enum PlayerDataController {
+    private static let _contents: [PlayerData<CustomData>] = [
+        appleBasic16_9()
+    ]
+
+    static func contents() -> [String] {
+        _contents.compactMap(\.identifier)
+    }
+
+    static func content(with identifier: String) -> PlayerData<CustomData>? {
+        _contents.first { $0.identifier == identifier }
+    }
+
+    private static func appleBasic16_9() -> PlayerData<CustomData> {
         PlayerData(
             identifier: "pillarbox:apple-basic-16-9",
             title: "Apple Basic 16:9",
@@ -20,7 +33,7 @@ struct PlayerDataController {
             subtitles: nil,
             chapters: nil,
             timeRanges: nil,
-            customData: Optional<Empty>.none
+            customData: Optional<CustomData>.none
         )
     }
 }

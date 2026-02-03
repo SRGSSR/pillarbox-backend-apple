@@ -2,15 +2,22 @@ import Vapor
 
 func routes(_ app: Application) throws {
     app.get { req async -> String in
-        "🎬 Pillarbox Backend - use /media/:id to get media"
+        """
+        🎬 Pillarbox Backend
+            • Available endpoints:
+                - /identifiers
+                - /media/:identifier
+        """
     }
 
-    app.get("media", ":id") { req async throws -> PlayerData<Empty> in
-        switch req.parameters.get("id") {
-        case "pillarbox:apple-basic-16-9":
-            PlayerDataController.appleBasic16_9()
-        default:
+    app.get("identifiers") { req async throws -> [String] in
+        PlayerDataController.contents()
+    }
+
+    app.get("media", ":identifier") { req async throws -> PlayerData<CustomData> in
+        guard let identifier = req.parameters.get("identifier"), let content = PlayerDataController.content(with: identifier) else {
             throw Abort(.notFound)
         }
+        return content
     }
 }

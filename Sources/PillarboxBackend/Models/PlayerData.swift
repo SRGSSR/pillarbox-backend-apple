@@ -1,4 +1,3 @@
-import Foundation
 import Vapor
 
 struct PlayerData<CustomData: Content>: Content {
