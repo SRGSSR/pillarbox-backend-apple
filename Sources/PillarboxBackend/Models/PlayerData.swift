@@ -6,7 +6,7 @@ struct PlayerData<CustomData: Content>: Content {
     let title: String?
     let subtitle: String?
     let description: String?
-    let posterUrl: String?
+    let posterUrl: URL?
     let seasonNumber: Int?
     let episodeNumber: Int?
     let source: Source
