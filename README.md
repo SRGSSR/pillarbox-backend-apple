@@ -1,27 +1,25 @@
-# PillarboxBackend
+# Pillarbox Backend For Standard Connectors
 
-💧 A project built with the Vapor web framework.
+Tiny backend delivering standard [Pillarbox metadata](https://github.com/SRGSSR/pillarbox-documentation/issues/173) for Pillarbox standard connectors.
 
-## Getting Started
+Deployed on Render.com: [https://pillarbox-backend-apple.onrender.com](https://pillarbox-backend-apple.onrender.com)
 
-To build the project using the Swift Package Manager, run the following command in the terminal from the root of the project:
-```bash
+## Setup
+
+Build the project using the Swift Package Manager:
+
+```sh
 swift build
 ```
 
-To run the project and start the server, use the following command:
+Run the project and start the server:
 ```bash
 swift run
 ```
 
-To execute tests, use the following command:
+Execute tests:
 ```bash
 swift test
 ```
 
-### See more
-
-- [Vapor Website](https://vapor.codes)
-- [Vapor Documentation](https://docs.vapor.codes)
-- [Vapor GitHub](https://github.com/vapor)
-- [Vapor Community](https://github.com/vapor-community)
+The server runs at `http://localhost:8080` by default.
